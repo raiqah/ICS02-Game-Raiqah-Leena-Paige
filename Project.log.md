@@ -1,8 +1,8 @@
 December 12 2018,
 
 1. Project Progress
-*Started to decorate our scenes (making nice sceneries)
-*Trying to make our lava an obsticle
+-Started to decorate our scenes (making nice sceneries)
+-Trying to make our lava an obsticle
 *Deciding what our other characters look like
 
 2. What has been done
