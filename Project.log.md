@@ -14,3 +14,10 @@ December 12 2018,
 *Interaction between character and lava (if you fall into it, math question appears)
 *Maybe adding harder levels
 *Styling out game 
+
+
+
+*Item
+*Item
+  *Ite,
+  *Item
