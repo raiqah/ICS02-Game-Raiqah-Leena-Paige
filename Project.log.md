@@ -7,7 +7,7 @@ December 12 2018,
 
 2. What has been done
 - Added a start screen with a button
-- Added 5 scenes in our game
+- Added a few scenes in our game
 - Created an animated scene (moving lava)
 
 3. What we are thinking about doing
@@ -15,4 +15,4 @@ December 12 2018,
 - Maybe adding harder levels
 - Styling out game 
 
-
+![Scene 1] ()
