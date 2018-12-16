@@ -59,10 +59,7 @@ var drawScene3 = function() {
 
     
 };
-var drawScene4 = function(){
-   currentScene = 4;
-    
-       var redfire = function (x,y){
+var redfire = function (x,y){
  this.x = x;
  this.y=y;
  };
@@ -142,14 +139,24 @@ draw= function() {
       mrpants.down();
     }
    mrpants.draw();
+  
+
+};
+
+ 
+ 
+   //stars and moon
+
+
+
+//fill(229, 240, 82);
+//ellipse(20,17,10,10); 
+
+
+
    
-   //orange obsticles
-  fill(255, 132, 0);
+       
 
-
-
-};
-};
 
 var drawScene5= function(){
     currentScene = 5;
