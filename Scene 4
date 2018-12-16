@@ -1,0 +1,97 @@
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ };
+ 
+ 
+ 
+ redfire.prototype.move = function(x,y){
+ fill(255, 0, 0);
+ rect(x, y + 358, 75, 270); 
+ };
+ 
+ //object of lava
+ var lava = [];
+ var ground= [];
+ 
+ 
+ for (var k = 0; k < 50; k++) {
+     lava.push (158*k);
+ }
+ 
+ for (var j = 0; j <50; j ++) {
+  ground.push (158*j);   
+ }
+ 
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           this.lava = 0;
+           
+   
+};
+ 
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (mouseX, mouseY);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 5;  
+};
+
+ var high = 20;
+
+draw= function() {
+      noStroke();
+    background(0, 30, 46);
+   
+//array of lava
+    for (var i = 0; i < lava.length; i++) {
+        fill(189, 24, 24);
+   rect(lava[i], height*0.9, 45, 40);
+   lava[i] -= 1;
+    }
+    
+    //array of ground
+    
+    for (var i = 0; i < ground.length; i++) {
+     fill(41, 17, 7);
+     rect(ground[i], height * 0.9, -116, 40);
+     ground[i] -=1;
+    }
+    
+   
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+  
+
+};
+
+ 
+ 
+   //stars and moon
+
+
+
+//fill(229, 240, 82);
+//ellipse(20,17,10,10); 
+
+
+
+   
+       
