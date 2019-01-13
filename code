@@ -59,103 +59,160 @@ var drawScene3 = function() {
 
     
 };
-var redfire = function (x,y){
+var drawScene4 = function(){
+   currentScene = 4;
+    
+  var redfire = function (x,y){
  this.x = x;
  this.y=y;
  };
  
  
- 
- redfire.prototype.move = function(x,y){
- fill(255, 0, 0);
- rect(x, y + 358, 75, 270); 
+ redfire.prototype.move = function(){
+     this.x-=3;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
  };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(255, 0, 0);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
  
  //object of lava
  var lava = [];
- var ground= [];
  
+
+var scorepoints = function (x,y){
  
- for (var k = 0; k < 50; k++) {
-     lava.push (158*k);
- }
- 
- for (var j = 0; j <50; j ++) {
-  ground.push (158*j);   
- }
- 
+this.x = x;
+this.y=y;
+ };
+
  var avatar = function(x,y){
            this.x= x;
            this.y= y;
-           this.img= getImage("avatars/mr-pants-orange");
-           this.lava = 0;
+           this.img= getImage("avatars/mr-pants");
+           //this.lava = 0;
            
    
 };
+
+
  
  avatar.prototype.draw = function() {
       fill(199, 0, 199);
       this.y = constrain(this.y, 0, height-48);
       image(this.img, this.x, this.y, 40,40);
  };
-var mrpants= new avatar (mouseX, mouseY);
+var mrpants= new avatar (0, 400);
 mrpants.draw ();
 
 avatar.prototype.up= function(){
-    this.img= getImage("avatars/mr-pants-orange");
+    this.img= getImage("avatars/mr-pants");
     this.y -= 6;  
 };
 
 avatar.prototype.down= function(){
-    this.img= getImage("avatars/mr-pants-orange");
-    this.y += 5;  
+    this.img= getImage("avatars/mr-pants");
+    this.y += 6;  
 };
 
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+    this.redfire.move-=1;
+    
+     
+  fill(255, 0, 0);
+ rect(185,174,100,100);
+background(235, 30, 30);
+fill(8, 3, 3);
+textSize(30);
+text("You touched the red!", 66, 209);
+fill(250, 106, 10);
+triangle(-6, 352, -68, 405, 7, 421);
+triangle(37, 352, 2, 405, 65, 421);
+triangle(90, 356, 58, 405, 125, 421);
+triangle(148, 356, 118, 405, 190, 421);
+triangle(206, 356, 178, 405, 249, 421);
+triangle(264, 356, 237, 405, 307, 421);
+triangle(330, 356, 299, 405, 369, 421);
+triangle(388, 356, 364, 405, 422, 421);
+
+ 
+  
+}
+};
  var high = 20;
 
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+  
+
 draw= function() {
+    
+
+
       noStroke();
     background(0, 30, 46);
    
 //array of lava
-    for (var i = 0; i < lava.length; i++) {
-        fill(189, 24, 24);
-   rect(lava[i], height*0.9, 45, 40);
-   lava[i] -= 1;
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
     }
     
-    //array of ground
+
     
-    for (var i = 0; i < ground.length; i++) {
-     fill(41, 17, 7);
-     rect(ground[i], height * 0.9, -116, 40);
-     ground[i] -=1;
-    }
     
-   
       if (keyIsPressed){
       mrpants.up();
     }else  {
       mrpants.down();
     }
    mrpants.draw();
-  
+ 
 
+   fill(32, 166, 171);
+    textSize(18);
+text("Score:", 5, 26);
+  
 };
 
+
+  
  
  
-   //stars and moon
+ 
+ 
+ 
+   
 
-
-
-//fill(229, 240, 82);
-//ellipse(20,17,10,10); 
+ 
+ 
 
 
 
    
        
+
+   
+
+
+
+};
 
 
 var drawScene5= function(){
