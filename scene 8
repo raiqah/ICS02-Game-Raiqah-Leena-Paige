@@ -1,0 +1,145 @@
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=2 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(25, 29, 31);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
+   
+};
+
+
+ var page = function (){
+ 
+   fill(255, 0, 0);
+ rect(185,174,100,100);
+background(55, 76, 77);
+fill(8, 3, 3);
+textSize(39);
+text("You touched the black!", 17, 177);
+textSize(20);
+text("Click anywhere to try harder level", 79, 209);
+fill(207, 216, 227);
+ellipse(84, 370, 51, 51);
+ellipse(139, 370, 51, 51);
+ellipse(194, 370, 51, 51);
+ellipse(249, 370, 51, 51);
+ellipse(305, 370, 51, 51);
+ellipse(29, 370, 51, 51);
+ellipse(360, 370, 51, 51);
+ellipse(417, 370, 51, 51);
+ 
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+
+//DRAW FUNCTION
+ 
+draw= function() {
+    //new scene
+background(97, 85, 85);
+fill(41, 38, 38);
+rect(104, 399, 222, -230);
+rect(295, 75, 20,96);
+triangle(104, 171, 207, 20, 327, 171);
+fill(61, 58, 58);
+rect(141, 200, 40, 40);
+rect(250, 200, 40, 40);
+fill(23, 18, 18);
+rect(184, 398, 70, -75);
+noStroke();
+ellipse(53, 20, 139, 48);
+ellipse(96, 37, 110, 69);
+ellipse(34, 72, 95, 69);
+ellipse(359, 200, 118, 69);
+ellipse(380, 234, 83, 69);
+
+//array of BLUE lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+
+};
+   /*fill(21, 28, 28);
+    textSize(18);
+text("Score:", 5, 26);*/
+
+  
+
