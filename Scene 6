@@ -1,0 +1,191 @@
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=3 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(0, 255, 38);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
+   
+};
+
+
+ var page = function (){
+ 
+ fill(87, 240, 135);
+ rect(185,174,100,100);
+background(39, 245, 39);
+fill(8, 3, 3);
+textSize(30);
+text("You touched the green!", 44, 209);
+text("Click anywhere to try harder level", -1, 255);
+fill(0, 112, 26);
+ellipse(200,356,10,90);
+ellipse(218,356,10,90);
+ellipse(241,356,10,90);
+ellipse(262,356,10,90);
+ellipse(288,356,10,90);
+ellipse(316,356,10,90);
+ellipse(340,356,10,90);
+ellipse(368,356,10,90);
+ellipse(18,356,10,90);
+ellipse(46,356,10,90);
+ellipse(178,356,10,90);
+ellipse(67,356,10,90);
+ellipse(154,356,10,90);
+ellipse(133,356,10,90);
+ellipse(90,356,10,90);
+ellipse(111,356,10,90);
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+ 
+draw= function() {
+    
+
+
+      
+    background(18, 124, 204);
+fill(230, 196, 110);
+rect(-2,300,603,244);
+fill(46, 217, 31);
+ellipse(15,262,10,80);
+ellipse(27,263,10,80);
+ellipse(39,263,10,80);
+ellipse(386,262,10,80);
+ellipse(373,262,10,80);
+ellipse(361,262,10,80);
+noStroke();
+fill(255, 0, 0);
+triangle(116,175,116,217,179,202);
+ellipse(183,200,57,24);
+fill(0, 0, 0);
+ellipse(204,198,3,4);
+fill(195, 53, 230);
+triangle(268,96,216,127,212,70);
+ellipse(278,95,57,24);
+fill(0, 0, 0);
+ellipse(297,94,3,4);
+
+
+
+//array of lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+    
+
+    
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+
+
+   fill(32, 166, 171);
+    textSize(18);
+text("Score:", 5, 26);
+  
+
+ 
+    };
+
+
+
+
+
+
+background(18, 124, 204);
+fill(230, 196, 110);
+rect(-2,300,603,244);
+fill(46, 217, 31);
+ellipse(15,262,10,80);
+ellipse(27,263,10,80);
+ellipse(39,263,10,80);
+ellipse(386,262,10,80);
+ellipse(373,262,10,80);
+ellipse(361,262,10,80);
+noStroke();
+fill(255, 0, 0);
+triangle(116,175,116,217,179,202);
+ellipse(183,200,57,24);
+fill(0, 0, 0);
+ellipse(204,198,3,4);
+fill(195, 53, 230);
+triangle(268,96,216,127,212,70);
+ellipse(278,95,57,24);
+fill(0, 0, 0);
+ellipse(297,94,3,4);
+
