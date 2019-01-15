@@ -1,5 +1,7 @@
 var currentScene;
 
+//SCENE 1
+
 var drawScene1 = function() {
     currentScene = 1;
     background(180, 250, 247);
@@ -16,6 +18,8 @@ var drawScene1 = function() {
     
    
 };
+
+//SCENE 2
 
 var drawScene2 = function() {
     currentScene = 2;
@@ -45,6 +49,8 @@ fill(255, 255, 0);
 ellipse(26,43,109,109);
 };
 
+//SCENE 3
+
 var drawScene3 = function() {
     currentScene = 3;
     background(180, 250, 247);
@@ -59,6 +65,9 @@ var drawScene3 = function() {
 
     
 };
+
+//SCENE 4
+
 var drawScene4 = function(){
    currentScene = 4;
     
@@ -227,7 +236,7 @@ text("Score:", 5, 26);
 
 };
 
-
+//SCENE 5
 
 var drawScene5= function(){
     
@@ -390,7 +399,10 @@ text("Score:", 5, 26);*/
     };
 };
 
+//SCENE 6
+
 var drawScene6 = function (){
+    currentScene= 6;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
@@ -560,31 +572,317 @@ text("Score:", 5, 26);
 
 
 
-background(18, 124, 204);
-fill(230, 196, 110);
-rect(-2,300,603,244);
-fill(46, 217, 31);
-ellipse(15,262,10,80);
-ellipse(27,263,10,80);
-ellipse(39,263,10,80);
-ellipse(386,262,10,80);
-ellipse(373,262,10,80);
-ellipse(361,262,10,80);
-noStroke();
-fill(255, 0, 0);
-triangle(116,175,116,217,179,202);
-ellipse(183,200,57,24);
-fill(0, 0, 0);
-ellipse(204,198,3,4);
-fill(195, 53, 230);
-triangle(268,96,216,127,212,70);
-ellipse(278,95,57,24);
-fill(0, 0, 0);
-ellipse(297,94,3,4);
+
 
 
 };
 
+var drawScene7 = function(){
+currentScene = 7;
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=4 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(202, 40, 235);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
+   
+};
+
+
+ var page = function (){
+ 
+ fill(235, 33, 228);
+ rect(185,174,100,100);
+background(245, 39, 231);
+fill(8, 3, 3);
+textSize(30);
+text("You touched the pink!", 44, 209);
+text("Click anywhere to try harder level", -1, 255);
+fill(95, 0, 110);
+ellipse(200,356,10,90);
+ellipse(218,356,10,90);
+ellipse(241,356,10,90);
+ellipse(262,356,10,90);
+ellipse(288,356,10,90);
+ellipse(316,356,10,90);
+ellipse(340,356,10,90);
+ellipse(368,356,10,90);
+ellipse(18,356,10,90);
+ellipse(46,356,10,90);
+ellipse(178,356,10,90);
+ellipse(67,356,10,90);
+ellipse(154,356,10,90);
+ellipse(133,356,10,90);
+ellipse(90,356,10,90);
+ellipse(111,356,10,90);
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+ 
+draw= function() {
+    
+
+
+      
+    background(250, 225, 247);
+fill(145, 145, 145);
+rect(150,70,100,314);
+rect(131,20,133,64);
+noStroke();
+fill(250, 70, 223);
+ellipse(244,368,181,100);
+ellipse(128,325,181,100);
+ellipse(277,294,181,100);
+ellipse(116,368,181,100);
+ellipse(328,352,181,100);
+fill(206, 245, 242);
+ellipse(199,135,47,62);
+
+
+
+
+//array of lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+    
+
+    
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+
+
+   fill(32, 166, 171);
+    textSize(18);
+text("Score:", 5, 26);
+  
+
+ 
+    };
+
+//SCENE 8
+
+var drawScene8= function() {
+    currentScene = 8;
+
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=2 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(25, 29, 31);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
+   
+};
+
+
+ var page = function (){
+ 
+   fill(255, 0, 0);
+ rect(185,174,100,100);
+background(55, 76, 77);
+fill(8, 3, 3);
+textSize(39);
+text("You touched the black!", 17, 177);
+textSize(20);
+text("Click anywhere to try harder level", 79, 209);
+fill(207, 216, 227);
+ellipse(84, 370, 51, 51);
+ellipse(139, 370, 51, 51);
+ellipse(194, 370, 51, 51);
+ellipse(249, 370, 51, 51);
+ellipse(305, 370, 51, 51);
+ellipse(29, 370, 51, 51);
+ellipse(360, 370, 51, 51);
+ellipse(417, 370, 51, 51);
+ 
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+
+//DRAW FUNCTION
+ 
+draw= function() {
+    //new scene
+background(97, 85, 85);
+fill(41, 38, 38);
+rect(104, 399, 222, -230);
+rect(295, 75, 20,96);
+triangle(104, 171, 207, 20, 327, 171);
+fill(61, 58, 58);
+rect(141, 200, 40, 40);
+rect(250, 200, 40, 40);
+fill(23, 18, 18);
+rect(184, 398, 70, -75);
+noStroke();
+ellipse(53, 20, 139, 48);
+ellipse(96, 37, 110, 69);
+ellipse(34, 72, 95, 69);
+ellipse(359, 200, 118, 69);
+ellipse(380, 234, 83, 69);
+
+//array of BLUE lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+};
+
+};
+   
+};
 
 var x=0;
 var y=0;
@@ -601,13 +899,24 @@ mouseClicked = function() {
     } else if (currentScene === 5){
         drawScene6();
     }else if (currentScene === 6){
-        drawScene1();
+        drawScene7();
+    }else if (currentScene === 7){
+        drawScene8();
+    }else if (currentScene ===8){
+         drawScene1();
     }
      
-};
+       
+    } ;
+   
+     
+
 
 drawScene1();
 //drawScene2();
 //drawScene3();
+
+
+
 
 
