@@ -14,8 +14,7 @@ var drawScene1 = function() {
     rect(141,122,150,60);
     fill(255, 255, 255);
     textSize(45);
-    text("Start", 161,165);
-    
+   text("Start", 161,165);
    
 };
 
@@ -61,9 +60,6 @@ var drawScene3 = function() {
     ellipse(20,20,100,100);
     fill(240, 240, 240);
     rect(120,92,150,200);
-
-
-    
 };
 
 //SCENE 4
@@ -289,8 +285,6 @@ this.y=y;
            
    
 };
-
-
  var page = function (){
  
    fill(255, 0, 0);
@@ -387,15 +381,6 @@ ellipse(13, 5, 71, 76);
       mrpants.down();
     }
    mrpants.draw();
-
-
-   /*fill(21, 28, 28);
-    textSize(18);
-text("Score:", 5, 26);*/
-
-  
-
- 
     };
 };
 
@@ -514,10 +499,7 @@ if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < f
  
 draw= function() {
     
-
-
-      
-    background(18, 124, 204);
+ background(18, 124, 204);
 fill(230, 196, 110);
 rect(-2,300,603,244);
 fill(46, 217, 31);
@@ -568,17 +550,14 @@ text("Score:", 5, 26);
     };
 
 
-
-
-
-
-
-
+//SCENE 7
 
 };
 
 var drawScene7 = function(){
 currentScene = 7;
+};
+
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
@@ -622,7 +601,6 @@ this.y=y;
            
    
 };
-
 
  var page = function (){
  
@@ -691,8 +669,6 @@ if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < f
 draw= function() {
     
 
-
-      
     background(250, 225, 247);
 fill(145, 145, 145);
 rect(150,70,100,314);
@@ -717,8 +693,6 @@ ellipse(199,135,47,62);
         mrpants.checkhit(lava[i]);
     }
     
-
-    
     
       if (keyIsPressed){
       mrpants.up();
@@ -738,13 +712,14 @@ text("Score:", 5, 26);
 
 //SCENE 8
 
-var drawScene8= function() {
+var drawScene8 = function() {
     currentScene = 8;
+};
 
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=2 ;
+ this.speed=5 ;
  };
  
  
@@ -765,7 +740,6 @@ var redfire = function (x,y){
  
 
  
- 
  //object of lava
  var lava = [];
  
@@ -784,7 +758,6 @@ this.y=y;
            
    
 };
-
 
  var page = function (){
  
@@ -842,7 +815,6 @@ if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < f
 
     }
 
-
 //DRAW FUNCTION
  
 draw= function() {
@@ -880,9 +852,163 @@ ellipse(380, 234, 83, 69);
    mrpants.draw();
 };
 
-};
+//SCENE 9
+var drawScene9 = function(){};
+
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=6 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(111, 104, 112);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
    
 };
+
+
+ var page = function (){
+ 
+ fill(150, 144, 150);
+ rect(185,174,100,100);
+background(227, 224, 227);
+fill(8, 3, 3);
+textSize(30);
+text("You touched the grey",44,209);
+text("Click anywhere to try harder level", -1, 255);
+fill(0, 0, 0);
+ellipse(200,356,10,90);
+ellipse(218,356,10,90);
+ellipse(241,356,10,90);
+ellipse(262,356,10,90);
+ellipse(288,356,10,90);
+ellipse(316,356,10,90);
+ellipse(340,356,10,90);
+ellipse(368,356,10,90);
+ellipse(18,356,10,90);
+ellipse(46,356,10,90);
+ellipse(178,356,10,90);
+ellipse(67,356,10,90);
+ellipse(154,356,10,90);
+ellipse(133,356,10,90);
+ellipse(90,356,10,90);
+ellipse(111,356,10,90);
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+ 
+draw= function() {
+    
+
+
+      
+ 
+background(191,239,242);
+fill(54, 224, 108);
+rect(-12,301,493,100);
+noStroke();
+fill(186, 180, 180);
+triangle(61,324,348,325,202,62);
+triangle(-3,329,243,328,-12,89);
+triangle(560,311,300,327,413,99);
+fill(250, 250, 250);
+rect(176,72,57,43);
+fill(191, 239, 242);
+rect(174,45,130,61);
+
+
+
+
+//array of lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+    
+
+    
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+
+
+   fill(32, 166, 171);
+    textSize(18);
+text("Score:", 5, 26);
+  
+    };
 
 var x=0;
 var y=0;
@@ -903,20 +1029,14 @@ mouseClicked = function() {
     }else if (currentScene === 7){
         drawScene8();
     }else if (currentScene ===8){
-         drawScene1();
+       drawScene9();
+    } else if (currentScene === 9){
+        drawScene1();
     }
+    };
      
        
-    } ;
-   
-     
-
-
 drawScene1();
 //drawScene2();
-//drawScene3();
-
-
-
-
+//drawScene3(); 
 
