@@ -1,10 +1,7 @@
-var drawScene5= function(){
-    
-    currentScene = 5;
-    fill(255, 0, 0);
-    ellipse(200, 200, 20, 20);
-    
-    //new scene
+var drawScene5 = function () {
+currentScene = 5;
+
+
 
       var redfire = function (x,y){
  this.x = x;
@@ -14,7 +11,7 @@ var drawScene5= function(){
  
  
  redfire.prototype.move = function(){
-     this.x-=this.speed;
+    this.x-=this.speed;
      if (this.x < 0) {   
          this.x = 500;
      }
@@ -55,19 +52,21 @@ this.y=y;
  
    fill(255, 0, 0);
  rect(185,174,100,100);
-background(235, 30, 30);
+background(30, 221, 235);
 fill(8, 3, 3);
-textSize(30);
-text("You touched the red!", 66, 209);
-fill(250, 106, 10);
-triangle(-6, 352, -68, 405, 7, 421);
-triangle(37, 352, 2, 405, 65, 421);
-triangle(90, 356, 58, 405, 125, 421);
-triangle(148, 356, 118, 405, 190, 421);
-triangle(206, 356, 178, 405, 249, 421);
-triangle(264, 356, 237, 405, 307, 421);
-triangle(330, 356, 299, 405, 369, 421);
-triangle(388, 356, 364, 405, 422, 421);
+textSize(39);
+text("You touched the blue!", 17, 177);
+textSize(20);
+text("Click anywhere to try next level", 79, 209);
+fill(10, 126, 250);
+ellipse(84, 370, 51, 51);
+ellipse(139, 370, 51, 51);
+ellipse(194, 370, 51, 51);
+ellipse(249, 370, 51, 51);
+ellipse(305, 370, 51, 51);
+ellipse(29, 370, 51, 51);
+ellipse(360, 370, 51, 51);
+ellipse(417, 370, 51, 51);
  
  };
 
@@ -91,11 +90,13 @@ avatar.prototype.down= function(){
 
      avatar.prototype.checkhit = function (fire){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
-  fire.speed-=1;
+  fire.speed=0;
   page();
   
 }
 };
+
+
 
  var high = 20;
 
@@ -110,7 +111,7 @@ if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < f
  
 draw= function() {
     //new scene
-
+strokeWeight(20);
 background(0, 153, 255);
  fill(217, 204, 204);
  rect(126, 127, 171, 274);
@@ -149,12 +150,16 @@ ellipse(13, 5, 71, 76);
    mrpants.draw();
 
 
-   /*fill(21, 28, 28);
+   fill(21, 28, 28);
     textSize(18);
-text("Score:", 5, 26);*/
+text("Score:" , 5, 26);
 
   
 
  
     };
+
+
+ 
+
 };
