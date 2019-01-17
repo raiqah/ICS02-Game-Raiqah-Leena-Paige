@@ -105,7 +105,7 @@ this.y=y;
  var avatar = function(x,y){
            this.x= x;
            this.y= y;
-           this.img= getImage("avatars/mr-pants-orange");
+           //this.img= getImage("avatars/mr-pants-orange");
            //this.lava = 0;
            
    
