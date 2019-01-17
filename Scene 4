@@ -1,14 +1,14 @@
-var drawScene4 = function(){
-   currentScene = 4;
-    
-  var redfire = function (x,y){
+var drawScene4 = function (){
+currentScene=4;
+var redfire = function (x,y){
  this.x = x;
  this.y=y;
+ this.speed=2 ;
  };
  
  
  redfire.prototype.move = function(){
-     this.x-=3;
+     this.x-=this.speed;
      if (this.x < 0) {   
          this.x = 500;
      }
@@ -38,38 +38,16 @@ this.y=y;
  var avatar = function(x,y){
            this.x= x;
            this.y= y;
-           this.img= getImage("avatars/mr-pants");
+           this.img= getImage("avatars/mr-pants-orange");
            //this.lava = 0;
            
    
 };
 
 
+ var page = function (){
  
- avatar.prototype.draw = function() {
-      fill(199, 0, 199);
-      this.y = constrain(this.y, 0, height-48);
-      image(this.img, this.x, this.y, 40,40);
- };
-var mrpants= new avatar (0, 400);
-mrpants.draw ();
-
-avatar.prototype.up= function(){
-    this.img= getImage("avatars/mr-pants");
-    this.y -= 6;  
-};
-
-avatar.prototype.down= function(){
-    this.img= getImage("avatars/mr-pants");
-    this.y += 6;  
-};
-
-     avatar.prototype.checkhit = function (fire){
-if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
-    this.redfire.move-=1;
-    
-     
-  fill(255, 0, 0);
+   fill(255, 0, 0);
  rect(185,174,100,100);
 background(235, 30, 30);
 fill(8, 3, 3);
@@ -84,11 +62,36 @@ triangle(206, 356, 178, 405, 249, 421);
 triangle(264, 356, 237, 405, 307, 421);
 triangle(330, 356, 299, 405, 369, 421);
 triangle(388, 356, 364, 405, 422, 421);
-
  
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
   
 }
 };
+
+
  var high = 20;
 
   for (var i = 0; i < 3; i++) {
@@ -97,15 +100,43 @@ triangle(388, 356, 364, 405, 422, 421);
 
     }
 
-  
-
+ 
 draw= function() {
     
 
 
-      noStroke();
+      
     background(0, 30, 46);
    
+fill(84, 37, 2);
+ triangle(206, 153,82, 413, 343, 421);
+ 
+ fill(255, 0, 0);
+   ellipse(225,200,20,57);
+ellipse(207,200,20,57);
+ ellipse(189,200,20,57);
+fill(0, 30, 46);
+ rect(164, 114, 84, 90);
+ //stars and moon
+
+fill(229, 240, 82);
+ellipse(20,17,10,10); 
+ellipse(256,129,34,34); 
+ellipse(333,69,13,13); 
+ellipse(31,184,13,13); 
+ellipse(147,252,4,4);
+fill(230, 225, 225);
+ellipse(383,-2,120,120);
+fill(163, 150, 163);
+ellipse(365, 1, 8, 8);
+ellipse(383, 14, 14, 14);
+ellipse(358, 31, 13, 9);
+
+ellipse(380, 46, 10, 5);
+
+
+
+
 //array of lava
     for (var i = 0; i < 3; i++) 
  {  lava[i].move(); 
@@ -122,11 +153,16 @@ draw= function() {
       mrpants.down();
     }
    mrpants.draw();
- 
+
 
    fill(32, 166, 171);
     textSize(18);
 text("Score:", 5, 26);
   
-};
+
+ 
+    };
+
+
+
 };
