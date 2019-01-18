@@ -1,7 +1,7 @@
 var drawScene1 = function() {
     currentScene = 1;
     background(180, 250, 247);
-    noStroke();
+
     fill(106, 209, 46);
     ellipse(360,380,5007,259);
     fill(255, 234, 0);
