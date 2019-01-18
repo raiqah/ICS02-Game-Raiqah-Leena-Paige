@@ -1,5 +1,6 @@
 var drawScene4 = function (){
-currentScene=4;
+currentScene = 4;
+
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
@@ -51,8 +52,9 @@ this.y=y;
  rect(185,174,100,100);
 background(235, 30, 30);
 fill(8, 3, 3);
-textSize(30);
-text("You touched the red!", 66, 209);
+textSize(20);
+text("You touched the red!", 99, 174);
+text("Click anywhere to try harder level", 62, 213);
 fill(250, 106, 10);
 triangle(-6, 352, -68, 405, 7, 421);
 triangle(37, 352, 2, 405, 65, 421);
@@ -110,7 +112,7 @@ draw= function() {
    
 fill(84, 37, 2);
  triangle(206, 153,82, 413, 343, 421);
- 
+ noStroke();
  fill(255, 0, 0);
    ellipse(225,200,20,57);
 ellipse(207,200,20,57);
@@ -162,6 +164,7 @@ text("Score:", 5, 26);
 
  
     };
+
 
 
 
