@@ -237,7 +237,7 @@ currentScene = 5;
  var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=2 ;
+ this.speed=3 ;
  };
  
  
@@ -401,7 +401,7 @@ currentScene = 6;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=3 ;
+ this.speed=4 ;
  };
  
  
@@ -449,9 +449,9 @@ this.y=y;
  rect(185,174,100,100);
 background(39, 245, 39);
 fill(8, 3, 3);
-textSize(25);
-text("You touched the green!", 44, 209);
-text("Click anywhere to try harder level", -1, 255);
+textSize(20);
+text("You touched the green!", 99, 174);
+text("Click anywhere to try harder level", 62, 213);
 fill(0, 112, 26);
 ellipse(200,356,10,90);
 ellipse(218,356,10,90);
@@ -600,7 +600,7 @@ currentScene = 7;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=4 ;
+ this.speed=5 ;
  };
  
  
@@ -648,9 +648,9 @@ this.y=y;
  rect(185,174,100,100);
 background(245, 39, 231);
 fill(8, 3, 3);
-textSize(25);
-text("You touched the pink!", 44, 209);
-text("Click anywhere to try harder level", -1, 255);
+textSize(20);
+text("You touched the pink!", 99, 174);
+text("Click anywhere to try harder level", 62, 213);
 fill(95, 0, 110);
 ellipse(200,356,10,90);
 ellipse(218,356,10,90);
@@ -762,7 +762,7 @@ currentScene = 8;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=2 ;
+ this.speed=6 ;
  };
  
  
@@ -961,9 +961,9 @@ this.y=y;
  rect(185,174,100,100);
 background(227, 224, 227);
 fill(8, 3, 3);
-textSize(25);
-text("You touched the grey",44,209);
-text("Click anywhere to try harder level", -1, 255);
+textSize(20);
+text("You touched the grey",99,174);
+text("Click anywhere to try harder level", 62, 213);
 fill(0, 0, 0);
 ellipse(200,356,10,90);
 ellipse(218,356,10,90);
@@ -1110,4 +1110,3 @@ mouseClicked = function() {
 };
 
 drawScene1();
-
