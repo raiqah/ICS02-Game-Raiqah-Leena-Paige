@@ -1,7 +1,7 @@
 var drawScene2 = function() {
     currentScene = 2;
         background(180, 250, 247);
-noStroke();
+
 var x= 146;
 var y=105;
 var x2=122;
@@ -15,7 +15,7 @@ textSize(30);
 text("Instructions",x,y);
 textSize(11);
 text("Avoid obsticles in each stage.",x2-5,y+35);
-text("You must do math problem if level not passed",x2-7,y2+31);
+text("If you lose, try the next harder level",x2-7,y2+31);
 text("If level completed, collect points and move on.",x2-8,y2+73);
 fill(0, 0, 0);
 rect(176,284,87,40);
@@ -24,4 +24,25 @@ textSize(16);
 text("Okay",x+53,y+203);
 fill(255, 255, 0);
 ellipse(26,43,109,109);
+};
+
+var drawScene3 = function() {
+    currentScene = 3;
+    background(180, 250, 247);
+  
+    fill(67, 184, 0);
+    rect(2,236,1390,1400);
+    fill(255, 255, 0);
+    ellipse(20,20,100,100);
+    fill(240, 240, 240);
+    rect(120,92,150,200);
+    fill(3, 10, 5);
+    textSize(15);
+    text("Who's your character", 120, 131);
+    textSize(170);
+    text("?", 146, 275);
+    
+
+
+    
 };
