@@ -1,14 +1,20 @@
 var drawScene3 = function() {
     currentScene = 3;
     background(180, 250, 247);
-    noStroke();
+  
     fill(67, 184, 0);
     rect(2,236,1390,1400);
     fill(255, 255, 0);
     ellipse(20,20,100,100);
     fill(240, 240, 240);
-    rect(29,92,150,200);
-    rect(231,92,150,200);
+    rect(120,92,150,200);
+    fill(3, 10, 5);
+    textSize(15);
+    text("Who's your character", 120, 131);
+    textSize(170);
+    text("?", 146, 275);
+    
+
 
     
 };
