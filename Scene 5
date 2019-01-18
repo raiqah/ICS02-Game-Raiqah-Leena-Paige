@@ -1,12 +1,10 @@
-var drawScene5 = function () {
+var drawScene5 = function (){
 currentScene = 5;
 
-
-
-      var redfire = function (x,y){
+ var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=2 ;
+ this.speed=3 ;
  };
  
  
@@ -54,9 +52,8 @@ this.y=y;
  rect(185,174,100,100);
 background(30, 221, 235);
 fill(8, 3, 3);
-textSize(39);
-text("You touched the blue!", 17, 177);
 textSize(20);
+text("You touched the blue!", 99, 174);
 text("Click anywhere to try next level", 79, 209);
 fill(10, 126, 250);
 ellipse(84, 370, 51, 51);
@@ -160,6 +157,6 @@ text("Score:" , 5, 26);
     };
 
 
- 
+
 
 };
