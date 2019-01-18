@@ -1,3 +1,6 @@
+var drawScene9 = function (){
+currentScene = 9;
+
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
@@ -49,9 +52,9 @@ this.y=y;
  rect(185,174,100,100);
 background(227, 224, 227);
 fill(8, 3, 3);
-textSize(30);
-text("You touched the grey",44,209);
-text("Click anywhere to try harder level", -1, 255);
+textSize(20);
+text("You touched the grey",99,174);
+text("Click anywhere to try harder level", 62, 213);
 fill(0, 0, 0);
 ellipse(200,356,10,90);
 ellipse(218,356,10,90);
@@ -163,3 +166,6 @@ text("Score:", 5, 26);
 
 
 
+
+
+};
