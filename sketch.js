@@ -72,7 +72,7 @@ currentScene = 4;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=2 ;
+ this.speed=4 ;
  };
  
  
@@ -225,7 +225,7 @@ ellipse(380, 46, 10, 5);
    mrpants.draw();
 
 
-   fill(32, 166, 171);
+   fill(255, 255, 255);
     textSize(18);
 text("Score:", 5, 26);
   
@@ -244,7 +244,7 @@ currentScene = 5;
  var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=3 ;
+ this.speed=5 ;
  };
  
  
@@ -387,7 +387,7 @@ ellipse(13, 5, 71, 76);
    mrpants.draw();
 
 
-   fill(21, 28, 28);
+   fill(0, 0, 0);
     textSize(18);
 text("Score:" , 5, 26);
 
@@ -407,7 +407,7 @@ currentScene = 6;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=4 ;
+ this.speed=6 ;
  };
  
  
@@ -560,7 +560,7 @@ ellipse(297,94,3,4);
    mrpants.draw();
 
 
-   fill(32, 166, 171);
+   fill(0, 0, 0);
     textSize(18);
 text("Score:", 5, 26);
   
@@ -595,7 +595,9 @@ ellipse(278,95,57,24);
 fill(0, 0, 0);
 ellipse(297,94,3,4);
 
-
+   fill(0, 0, 0);
+    textSize(18);
+text("Score:", 5, 26);
 
 };
 
@@ -606,7 +608,7 @@ currentScene = 7;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=5 ;
+ this.speed=7 ;
  };
  
  
@@ -752,7 +754,7 @@ ellipse(199,135,47,62);
    mrpants.draw();
 
 
-   fill(32, 166, 171);
+   fill(0, 0, 0);
     textSize(18);
 text("Score:", 5, 26);
   
@@ -768,7 +770,7 @@ currentScene = 8;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=6 ;
+ this.speed=8 ;
  };
  
  
@@ -902,10 +904,13 @@ ellipse(380, 234, 83, 69);
     }
    mrpants.draw();
 
-};
-   /*fill(21, 28, 28);
+
+ fill(255, 255, 255);
     textSize(18);
-text("Score:", 5, 26);*/
+text("Score:", 5, 26);
+
+};
+  
 
   
 
@@ -918,7 +923,7 @@ currentScene = 9;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=6 ;
+ this.speed=9 ;
  };
  
  
@@ -1064,7 +1069,7 @@ rect(174,45,130,61);
    mrpants.draw();
 
 
-   fill(32, 166, 171);
+   fill(0, 0, 0);
     textSize(18);
 text("Score:", 5, 26);
   
@@ -1073,6 +1078,197 @@ text("Score:", 5, 26);
     };
 
 
+
+};
+
+var drawScene10 = function () {//SCENE 10
+
+var drawScene10 = function (){
+currentScene = 10;
+};
+
+var redfire = function (x,y){
+ this.x = x;
+ this.y=y;
+ this.speed=10 ;
+ };
+ 
+ 
+ redfire.prototype.move = function(){
+     this.x-=this.speed;
+     if (this.x < 0) {   
+         this.x = 500;
+     }
+
+ };
+ 
+
+ 
+ redfire.prototype.show = function (){
+  fill(255, 255, 255);
+ rect(this.x, this.y+43, 63, 59); 
+ };
+ 
+
+ 
+ 
+ //object of lava
+ var lava = [];
+ 
+
+var scorepoints = function (x,y){
+ 
+this.x = x;
+this.y=y;
+ };
+
+ var avatar = function(x,y){
+           this.x= x;
+           this.y= y;
+           this.img= getImage("avatars/mr-pants-orange");
+           //this.lava = 0;
+           
+   
+};
+
+
+ var page = function (){
+ 
+ fill(235, 33, 228);
+ rect(185,174,100,100);
+background(255, 255, 255);
+fill(0, 0, 0);
+textSize(20);
+text("You touched the white!", 102, 209);
+text("Click anywhere to try harder level", 47, 255);
+fill(176, 176, 255);
+rect(200,356,10,90);
+rect(218,356,10,90);
+rect(241,356,10,90);
+rect(262,356,10,90);
+rect(288,356,10,90);
+rect(316,356,10,90);
+rect(340,356,10,90);
+rect(368,356,10,90);
+rect(18,356,10,90);
+rect(46,356,10,90);
+rect(178,356,10,90);
+rect(67,356,10,90);
+rect(154,356,10,90);
+rect(133,356,10,90);
+rect(90,356,10,90);
+rect(111,356,10,90);
+ };
+
+ avatar.prototype.draw = function() {
+      fill(199, 0, 199);
+      this.y = constrain(this.y, 0, height-48);
+      image(this.img, this.x, this.y, 40,40);
+ };
+var mrpants= new avatar (0, 400);
+mrpants.draw ();
+
+avatar.prototype.up= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y -= 6;  
+};
+
+avatar.prototype.down= function(){
+    this.img= getImage("avatars/mr-pants-orange");
+    this.y += 6;  
+};
+
+     avatar.prototype.checkhit = function (fire){
+if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
+  fire.speed=0;
+  page();
+  
+}
+};
+
+
+ var high = 20;
+
+  for (var i = 0; i < 3; i++) {
+   lava[i] = new redfire (400,300);
+     //lava[i].show();
+
+    }
+
+ 
+draw= function() {
+    
+
+
+    
+background(237, 218, 245);
+noStroke();
+
+var Rainbow= function(x, y, radius){
+    this.x= x;
+    this.y= y;
+    this.radius= radius;
+};
+
+
+var drawRainbow = function(rainbow) {
+    noFill();
+    strokeWeight(5);
+    stroke(255, 0, 0);
+    arc(rainbow.x, rainbow.y, rainbow.radius, rainbow.radius, 180, 360);
+    stroke(250, 200, 0);
+    arc(rainbow.x, rainbow.y, rainbow.radius-10, rainbow.radius-10, 180, 360);
+    stroke(240, 255, 102);
+    arc(rainbow.x, rainbow.y, rainbow.radius-20, rainbow.radius-20, 180, 360);
+    stroke(29, 255, 13);
+    arc(rainbow.x, rainbow.y, rainbow.radius-30, rainbow.radius-30, 180, 360);
+    stroke(122, 155, 255);
+    arc(rainbow.x, rainbow.y, rainbow.radius-40, rainbow.radius-40, 180, 360);
+};
+var smallRainbow= new Rainbow(200,200,300);
+drawRainbow(smallRainbow); 
+noStroke();
+fill(255, 255, 255);
+ellipse(39,225,106,75);
+ellipse(93,257,106,75);
+ellipse(89,234,106,75);
+ellipse(100,199,106,75);
+ellipse(154,236,106,75);
+
+fill(255, 255, 255);
+ellipse(311,225,106,75);
+ellipse(331,257,106,75);
+ellipse(383,234,106,75);
+ellipse(353,199,106,75);
+ellipse(487,299,106,75);
+
+
+
+//array of lava
+    for (var i = 0; i < 3; i++) 
+ {  lava[i].move(); 
+     lava[i].show();
+        mrpants.checkhit(lava[i]);
+    }
+    
+
+    
+    
+      if (keyIsPressed){
+      mrpants.up();
+    }else  {
+      mrpants.down();
+    }
+   mrpants.draw();
+
+
+   fill(0, 0, 0);
+    textSize(18);
+text("Score:", 5, 26);
+  
+
+ 
+    };
 
 };
 
@@ -1101,8 +1297,10 @@ mouseClicked = function() {
     
     }else if (currentScene === 9) {
         
-        drawScene1();
+        drawScene10();
         
+    }else if (currentScene === 10){
+        drawScene1();
     }
 };
 
