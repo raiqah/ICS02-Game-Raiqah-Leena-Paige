@@ -23,8 +23,10 @@ mouseClicked = function() {
     
     }else if (currentScene === 9) {
         
-        drawScene1();
+        drawScene10();
         
+    }else if (currentScene === 10){
+        drawScene1();
     }
 };
 
