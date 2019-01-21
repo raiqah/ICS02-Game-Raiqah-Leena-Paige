@@ -4,7 +4,7 @@ currentScene = 6;
 var redfire = function (x,y){
  this.x = x;
  this.y=y;
- this.speed=4 ;
+ this.speed=6 ;
  };
  
  
@@ -157,7 +157,7 @@ ellipse(297,94,3,4);
    mrpants.draw();
 
 
-   fill(32, 166, 171);
+   fill(0, 0, 0);
     textSize(18);
 text("Score:", 5, 26);
   
@@ -192,6 +192,8 @@ ellipse(278,95,57,24);
 fill(0, 0, 0);
 ellipse(297,94,3,4);
 
-
+   fill(0, 0, 0);
+    textSize(18);
+text("Score:", 5, 26);
 
 };
