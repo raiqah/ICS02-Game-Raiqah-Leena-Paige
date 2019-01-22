@@ -28,14 +28,15 @@ var y2=149;
 fill(67, 184, 0);
 ellipse(207,348,498,210);
 fill(240, 240, 240);
-rect(111,74,232,293);
+rect(94,63,259,292);
 fill(0, 0, 0);
 textSize(30);
 text("Instructions",x,y);
 textSize(11);
-text("Avoid obsticles in each stage.",x2-5,y+35);
-text("If you lose, try the next harder level",x2-7,y2+31);
-text("If level completed, collect points and move on.",x2-8,y2+73);
+text("1.    Avoid obsticles in each stage.",x2+-4,y+35);
+text("2.    If you lose, try the next harder level",x2+-2,y2+31);
+text("3. Your character must touch the ground before",x2+-10,y2+73);
+text("jumping again (no holding the spacebar)", x2+7, y2+90);
 fill(0, 0, 0);
 rect(176,284,87,40);
 fill(250, 250, 250);
@@ -73,6 +74,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=4 ;
+ this.score=0;
  };
  
  
@@ -157,6 +159,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
+  this.score=-1;
   
 }
 };
@@ -227,7 +230,7 @@ ellipse(380, 46, 10, 5);
 
    fill(255, 255, 255);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
   
 
  
@@ -245,6 +248,7 @@ currentScene = 5;
  this.x = x;
  this.y=y;
  this.speed=5 ;
+ this.score=0;
  };
  
  
@@ -329,7 +333,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
-  
+  this.score=-2;
 }
 };
 
@@ -389,7 +393,7 @@ ellipse(13, 5, 71, 76);
 
    fill(0, 0, 0);
     textSize(18);
-text("Score:" , 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
 
   
 
@@ -408,6 +412,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=6 ;
+ this.score=0;
  };
  
  
@@ -499,6 +504,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
+  this.score=-3;
   
 }
 };
@@ -562,7 +568,7 @@ ellipse(297,94,3,4);
 
    fill(0, 0, 0);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
   
 
  
@@ -609,6 +615,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=7 ;
+ this.score=0;
  };
  
  
@@ -700,6 +707,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
+  this.score=-4;
   
 }
 };
@@ -756,7 +764,7 @@ ellipse(199,135,47,62);
 
    fill(0, 0, 0);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
   
 
  
@@ -771,6 +779,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=8 ;
+ this.score=0;
  };
  
  
@@ -855,6 +864,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
+  this.score=-5;
   
 }
 };
@@ -907,7 +917,7 @@ ellipse(380, 234, 83, 69);
 
  fill(255, 255, 255);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
 
 };
   
@@ -924,6 +934,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=9 ;
+ this.score=0;
  };
  
  
@@ -1015,6 +1026,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
+  this.score=-6;
   
 }
 };
@@ -1071,7 +1083,7 @@ rect(174,45,130,61);
 
    fill(0, 0, 0);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
   
 
  
@@ -1091,6 +1103,7 @@ var redfire = function (x,y){
  this.x = x;
  this.y=y;
  this.speed=10 ;
+ this.score=0;
  };
  
  
@@ -1182,7 +1195,7 @@ avatar.prototype.down= function(){
 if (this.x > fire.x-10 && this.x < fire.x+10 && this.y > fire.y-10 && this.y < fire.y+100 === true) {
   fire.speed=0;
   page();
-  
+  this.score=-7;
 }
 };
 
@@ -1264,7 +1277,7 @@ ellipse(487,299,106,75);
 
    fill(0, 0, 0);
     textSize(18);
-text("Score:", 5, 26);
+text("Score:" +  mrpants.score, 5, 26);
   
 
  
